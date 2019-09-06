@@ -1,3 +1,59 @@
+<link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
 p {
   color: red;
 }
+
+h1 {
+  font-family: Raleway;
+  font-size: 150px;
+  color: #efefef;
+}
+
+div {
+  background: rgb(31,61,186);
+  background: linear-gradient(90deg, rgba(31,61,186,1) 0%, rgba(0,243,255,1) 100%);
+  padding: 100px;
+}
+
+a .sweep-to-top { background-color: #ecf0f1;
+  color: #2980b9;
+  display: block;
+  font-weight: bold;
+  margin-bottom: 20px;
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  &:hover
+    color: #fff
+    }
+
+.sweep-to-top {
+  position: relative
+  -webkit-transform: translateZ(0)
+  transform: translateZ(0)
+  -webkit-transition: color 1000ms
+  transition: color 1000ms
+  &:before
+    content: ""
+    position: absolute
+    z-index: -1
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background: #2098d1
+    -webkit-transform: scaleY(0)
+    transform: scaleY(0)
+    -webkit-transform-origin: 50% 100%
+    transform-origin: 50% 100%
+    -webkit-transition-property: transform
+    transition-property: transform
+    -webkit-transition: 300ms ease-out
+    transition: 300ms ease-out
+  &:hover:before
+    -webkit-transform: scaleY(1)
+    transform: scaleY(1)
+
+  }
