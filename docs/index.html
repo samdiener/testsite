@@ -3,21 +3,359 @@
   <head>
     <meta charset="utf-8">
     <title>title</title>
+    <link rel="stylesheet" type="text/css" href="./styles/normalize.css">
     <link rel="stylesheet" type="text/css" href="./styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,700,900&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"> </script>
+
+
+
+    <script language="javascript" type="text/javascript">
+    $(window).scroll(function() {
+
+// selectors
+var $window = $(window),
+    $body = $('body'),
+    $panel = $('.panel');
+
+
+// Change 33% earlier than scroll position so colour is there when you arrive.
+var scroll = $window.scrollTop() + ($window.height() / 2);
+
+$panel.each(function () {
+  var $this = $(this);
+
+  // if position is within range of this panel.
+  // So position of (position of top of div <= scroll position) && (position of bottom of div > scroll position).
+  // Remember we set the scroll to 33% earlier in scroll var.
+  if ($this.position().top <= scroll && $this.position().top + $this.height() > scroll) {
+
+    // Remove all classes on body with color-
+    $body.removeClass(function (index,css) {
+      return (css.match (/(^|\s)color-\S+/g) || []).join(' ');
+    });
+
+    // Add class of currently active div
+    $body.addClass('color-' + $(this).data('color'));
+  }
+});
+
+}).scroll();
+
+function myfct() {
+  document.getElementById('responsive-menu').checked = false;
+  console.log('close')
+}
+
+</script>
+
+
+
+<script>
+window.onscroll = function() {myFunction()};
+
+function myFunction() {
+  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  var scrolled = (winScroll / height) * 100;
+  document.getElementById("myBar").style.height = scrolled + "%";
+}
+</script>
+
   </head>
+
+
+
+
+
   <body>
-    <div>
-    <h1>Experimentelles Erzählen</h1>
+   <!--<object id="main-logo" data="assets/ee_logo.svg" type="image/svg+xml"></object>-->
+<div onClick="history.go(0);">
+<svg version="1.1" id="main-logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 53.5 32.4" style="enable-background:new 0 0 53.5 32.4;" xml:space="preserve">
+
+<g>
+	<g>
+		<path class="st0" d="M23.5,32.4h-4.9L28.8,0h4.9L23.5,32.4z"/>
+	</g>
+	<g>
+		<polygon class="st0" points="51.4,13.1 34.1,13.1 32.4,18.4 51.4,18.4 		"/>
+		<polygon class="st0" points="16.2,25.6 7.2,25.6 7.2,18.4 18.4,18.4 20.1,13.1 7.2,13.1 7.2,6.8 22.1,6.8 23.8,1.2 0,1.2 0,31.1
+			14.4,31.1 		"/>
+		<polygon class="st0" points="37.9,1.2 36.1,6.8 53.5,6.8 53.5,1.2 		"/>
+		<polygon class="st0" points="28.5,31.1 53.4,31.1 53.4,25.6 30.2,25.6 		"/>
+	</g>
+</g>
+</svg>
+
+<div class="progress-container">
+    <div class="progress-bar" id="myBar"></div>
   </div>
+</div>
 
-  <a href="" class="sweep-to-top">Sweep To Top</a>
+</div>
 
-    <p>Ade mässi<p>
-    <p>Hiii</p>
-    <ul>
-      <li>Hello</li>
-      <li>Hello</li>
-      <li>Hello</li>
+    <nav>
+        <div class="container">
+            <input id="responsive-menu" type="checkbox">
+            <label for="responsive-menu"> <span id="menu-icon"></span></label>
+            <div id="overlay"></div>
+            <ul onclick="myfct()">
+                <li><a href="#socialmedia">Social Media</a></li>
+                <li><a id="nav-blue" href="#diastory"> DIA Story</a></li>
+                <li><a id="nav-purple" href="#continue">Continue</a></li>
+                <li><a id="nav-red" href="#oneword">One Word</a></li>
+                <li><a id="nav-green" href="#thegame">The Game</a></li>
+                <li><a id="nav-greenish" href="#dramaturgie">Dramaturgie</a></li>
+                <li><a id="nav-greyish" href="#ideenboerse">Ideenbörse</a></li>
+                <li><a href="#interaktivesbuch">Interaktives Buch</a></li>
+                <li><a id="nav-blue" href="#hero">Heldinnen und Helden</a></li>
+                <li><a id="nav-purple" href="#storyboards">Storyboards</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+<!-- Content -->
+
+<section id="socialmedia">
+  <div class="panel" data-color="turkis">
+  <div class="eins">
+    <h1 class="titel">
+      Social Media
+    </h1>
+    <p class="text imeck">
+      Beim Social Media Experiment ging es darum eine «Nachricht / Botschaft» auf ein Schild zu schreiben. Sich vor unbekannte Leute zu setzten und diese interpretieren zu lassen. Dabei entstanden verschiedenste Meinungen über die Person mit dem Schild. Dies zeigte wie eine Aussage von jeder Person individuell interpretiert und verarbeitet wird und zu einem völlig anderen Verständnis einer Aussage führen kann.
+    </p>
+    <div class="grafik imeck ani1">
+      <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+        <lottie-player
+        src="https://assets8.lottiefiles.com/packages/lf20_5StrZZ.json"  background="transparent"  speed="1"   hover loop >
+        </lottie-player>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="diastory">
+<div class="panel" data-color="blue">
+  <div class="zwei">
+    <h1 class="titel">
+      DIA Story
+    </h1>
+    <p class="text imeck">
+      Die «Dia Story» entstand aus in Dia Rahmen gepackte Zeichnungen auf Transparentpapier. Die Zeichnungen entstanden dadurch das Personen sich gegenseitig mit geschlossenen Augen durch das Schulhausgelände führten und mit einem «Knopfdruck» ein Foto auslösten. Dabei durfte die Person, welche die «Kamera» spielte die Augen öffnen und musste danach das was sie in ihrem Blickfeld erfasst hatte auf das Dia abzeichnen.
+      Durch die entstandenen Dias wurden danach von der Gruppe zu einer Geschichte zusammen gesetzt. Die Geschichte wurde schriftlich festgehalten, danach wechselten die Gruppen und mussten eine fremde Dia Geschichte auf ihre Weise interpretieren.
+    </p>
+    <div class="grafik imeck ani1">
+      <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player
+    src="https://assets5.lottiefiles.com/packages/lf20_jncypu.json"  background="transparent"  speed="1"   hover loop >
+</lottie-player>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="continue">
+<div class="panel" data-color="purple">
+  <div class="drei">
+    <h1 class="titel">
+      Continue
+    </h1>
+    <p class="text imeck">
+      Alles beginnt mit einem Satz. Eine Person schreibt dazu eine Geschichte die ihr einfällt. Zum gewünschten Zeitpunkt lässt sie diese stehen und eine weitere Person schreibt weiter. Dadurch nimmt die Geschichte immer wieder eine andere Wendung ein und es entsteht ein gemeinsames Werk.
+    </p>
+    <div class="grafik imeck ani1">
+      <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+        <lottie-player
+          src="https://assets8.lottiefiles.com/packages/lf20_Nhfi7u.json"  background="transparent"  speed="1"   hover loop >
+        </lottie-player>
+  </div>
+</div>
+</section>
+
+<section id="oneword">
+<div class="panel" data-color="red">
+  <div class="vier">
+    <h1 class="titel">
+      One Word
+    </h1>
+    <p class="text imeck">
+      Eine Person startet mit einem Wort, eine andere Person hängt ein zweites passendes Wort an. Es entsteht ein Satz der mit der letzten Person im Raum geschlossen werden kann. Es stellte sich heraus ein passendes Wort zu finden ist schwieriger als erwartet. Auch hier zeigte sich wieder wie unterschiedlich Gedanken sind und der Satz nicht immer nach Erwartung fortgesetzt wurde.
+    </p>
+    <div class="grafik imeck ani1">
+      <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+        <lottie-player
+        src="https://assets8.lottiefiles.com/packages/lf20_XAXOVI.json"  background="transparent"  speed="1"   hover loop >
+        </lottie-player>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="thegame">
+<div class="panel" data-color="green">
+  <div class="fuenf">
+    <h1 class="titel">
+      The Game
+    </h1>
+    <p class="text imeck">
+      Auftrag dieser Methode war es ein Spiel zu erfinden. Dabei wurde einer Gruppe aus 3-4 Personen ein Zeitungsartikel zugeteilt. Der Zeitungsartikel beinhaltete meistens ein ausserordentliches Ereignis. Die Wahl des Spiels war frei, analog oder digital. Durch verschiedenste Ideen in der Gruppe entstanden kreative Spiele. Der Zeitungsartikel gab dem Spiel einen guten Rahmen so das schnell Ideen weiterentwickelt und teilweise auch schon erste grafische Elemente der Spiele umgesetzt wurden.
+    </p>
+    <div class="grafik imeck ani2">
+      <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+        <lottie-player
+        src="https://assets2.lottiefiles.com/packages/lf20_XvwL9h.json"  background="transparent"  speed="1"   hover loop >
+        </lottie-player>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="dramaturgie">
+<div class="panel" data-color="greenish">
+  <div class="sechs">
+    <h1 class="titel">
+      Dramaturgie
+    </h1>
+    <p class="text imeck">
+      Der Grundaufbau einer Dramaturgie besteht aus 3 Akten. <br><br>
+      Im 1. Akt (Exposition) wird man in die Geschichte eingeführt. Man lernt die Hauptfiguren  und die Umgebung genauer kennen. Am Ende des Aktes wird die Geschichte durch ein Ereignis in eine Richtung gelenkt.
+      <br> <br>Im 2. Akt bewältigt die Hauptfigur eine Herausforderung, der entstandene Konflikt wird bekämpft. Es entsteht das Ziel eine Lösung zu finden, in dem Prozess begleitet man die Hauptfigur durch denn 2. Akt. Am Ende der 2. Aktes kommt der Plot, der höchste und spannendste Punkt einer Geschichte. Der Plot Löst das Problem, den Konflikt auf.
+      <br> <br>Der 3. Akt beschreibt das Ende der Geschichte. Wie geht es aus, was machend die Hauptfiguren danach. Der User wird wieder aus der Geschichte begleitet.
+    </p>
+    <div class="grafik imeck ani1">
+      <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+        <lottie-player
+        src="https://assets9.lottiefiles.com/packages/lf20_lENdVv.json"  background="transparent"  speed="1"   hover loop >
+        </lottie-player>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="ideenboerse">
+<div class="panel" data-color="greyish">
+  <div class="sieben">
+    <h1 class="titel">
+      Ideenbörse
+    </h1>
+    <div class="speciale">
+    <p class="text imeck">
+      Die Ideenbörse fand statt um verschiedene Methoden und Ideen des Experimentellen Erzählens zu sammeln und auszutauschen. Nach Interessen in den verschiedenen Themen habe sich dann die Gruppen gebildet.
+      <br>Einige der Methoden und Ideen:
+    </p>
+    <ul class="liist">
+      <li>Hörbuch</li>
+      <li>Fotoreportage</li>
+      <li>Film</li>
+      <li>Improvisation</li>
+      <li>Spielbuch</li>
+      <li>Körpersprache</li>
+      <li>Stumfilme</li>
+      <li>Interaktives Buch</li>
+      <li>Gerüche</li>
+      <li>Virtual Reality</li>
     </ul>
+  </div>
+    <div class="grafik imeck ani1">
+      <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+        <lottie-player
+        src="https://assets9.lottiefiles.com/packages/lf20_OcrG7C.json"  background="transparent"  speed="1"   hover loop >
+        </lottie-player>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="interaktivesbuch">
+<div class="panel" data-color="turkis">
+  <div class="eins">
+    <h1 class="titel">
+      Interaktives Buch
+    </h1>
+    <p class="text imeck">
+        <strong> Team / Idee </strong><br>
+        Unser Team (KM11) bildete sich aus der Interesse ein Interaktives Buch zu gestalten. In dem wir den User in die Geschichte einbinden wollten.
+        <br><br>
+
+        <strong> Konzept </strong><br>
+        Die Idee entwickelte sich zum Konzept. Durch unabhängige Fragen die wir einem User vor der Geschichte stellen, erkennen wir seine persönlichen Merkmale und teilen ihn in der Geschichte der Person zu die am ehesten seinen Charakterzügen entspricht. Die Geschichte handelt von einem Verbrecher-Quartett, welches eine Bank überfällt und ausrauben will. Nach 2 Fragen ist der Unser danach der Leader: eine Person welche gerne die Führung übernimmt und selbstbewusst ist. Der Hacker: Eine Person die gerne im Hintergrund eher strategisch seinen Beitrag leistet. Der Clown: Eine Person die gerne Ausführt aber eher tolpatschig ist. Der Rambo: Die Ausführende Person die gerne Selbst was macht und seine Energie raus lassen muss.<br>
+        Diesen Charakter nimmt der User dann in der Geschichte ein und wird mit einer entscheidenden Frage während der Geschichte konfrontiert, die den Ausgang der Geschichte beeinflusst.
+        <br><br>
+
+        <strong> Recherche-Ausflug </strong><br>
+        Der Kanzleiflohmarkt diente unserer Gruppe als Inspiration für den Überfall. Die Gegend wurde genau erkundet und ist nun Schauplatz des Verbrechens. Die nahgelegene ZKB eignete sich dafür ideal. Auch das Kino Xenix und der Märt, welcher jeweils Samstags stattfindet, sind Teil der Geschichte.
+        <br><br>
+
+        <strong> Aufbau / Umsetzung </strong><br>
+        Die Storys wurden von vier verschiedenen Personen der Gruppe jeweils für einen Charakter geschrieben. Fixpunkte der Geschichte wurden jedoch festgelegt, sodass der grösste Teil der Handlung ähnlich abläuft. Durch Grafiken wird die Geschichte visuell unterstütz. Das Ganze wurde als Prototyp aufgebaut, und mit Figma umgesetzt. Figma ermöglichte uns das gemeinsame arbeiten auf einer Datei. Dies vereinfachte den Prozess und den Austausch enorm.
+        <br><br>
+
+        <strong> Finales Produkt </strong><br>
+        Das Finale Produkt wurde Präsentiert und konnte von den Mitschülern gleich ausprobiert werden. Durch eine Iteration des Testings konnten wir feststellen das sich die Charaktere grösstenteils gut aufteilen und sich die User dem Produkt «verbundener» fühlen.
+
+    </p>
+    <div class="grafik imeck ani3">
+      <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+        <lottie-player
+        src="https://assets6.lottiefiles.com/packages/lf20_tExg8s.json"  background="transparent"  speed="1"   hover loop >
+        </lottie-player>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="hero">
+<div class="panel" data-color="blue">
+  <div class="zwei">
+    <h1 class="titel">
+      Heldinnen und Helden
+    </h1>
+    <p class="text imeck">
+      In einer Gruppe erstellten wir eine detaillierte Beschreibung und eine Zeichnung einer Figur (eines Helden). Diese Zeichnungen und Beschreibungen wurden danach getrennt an eine Gruppe weitergegeben. Diese Gruppe versuchte dann die Figur aus der Beschreibung zu interpretieren und die Gruppe die die Zeichnung bekam versuchte die gezeichnete Figur zu beschreiben. Hierbei wurden einige Ähnlichkeiten festgestellt. Jedoch konnten sich Zeichnungen und Beschreibungen in vielen Punkten auch weit unterscheiden. Es zeigte wie Bild und Text verschieden interpretiert werden können und eine Information verschiedene Auswirkungen haben kann, auch wenn sie genau beschrieben wird.
+    </p>
+    <div class="grafik imeck ani1">
+      <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+        <lottie-player
+        src="https://assets2.lottiefiles.com/packages/lf20_2Q2Gqo.json"  background="transparent"  speed="1"   hover loop >
+        </lottie-player>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="storyboards">
+<div class="panel" data-color="purple">
+  <div class="drei">
+    <h1 class="titel">
+      Storyboards
+    </h1>
+    <p class="text imeck">
+      Ein Storyboard setzt sich aus vielen verschiedenen Kameraeinstellungen eines Filmes, oder einer Sequenz zusammen. Darin versucht man alle Einstellungen kurz zu skizzieren, je nach Grösse des Projektes gibt es extra Storyboard-Zeichner die dafür den Auftrag fassen.
+      <br> Das Storyboard hilft allem am Set beteiligten Personen die Geschichte die erzählt werden soll genauer zu verstehen.
+      <br> Kamera Bewegung wird auf dem Storyboard mit Pfeilen dargestellt.
+      <br> Eine wichtige Grundregel ist es nie über die Achse zu springen. Sprechen 2 Personen miteinander soll die eine immer Links und die andere immer Rechts im Bild sein. Dies ermöglicht eine Filmrichtung von max. 180 Grad.
+      </p>
+      <div class="grafik imeck ani1">
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+          <lottie-player
+          src="https://assets10.lottiefiles.com/packages/lf20_igQL4f.json"  background="transparent"  speed="1"   hover loop >
+          </lottie-player>
+      </div>
+  </div>
+</div>
+</section>
+
+<div class="ende">
+  <h2> Sam Diener für Experimentelles Erzählen | IAD19 | ©2020 </h2>
+</div>
+
+<div class="ende">
+ <div class="smartass"> you can't see me.
+ </div>
+</div>
+
   </body>
 </html>
