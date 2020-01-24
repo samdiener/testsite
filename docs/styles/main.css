@@ -41,6 +41,7 @@ p {
 
 
 /* Grafiken */
+  @media only screen and (min-width: 738px) {
 .grafik {
   display: inline-block;
   float: right;
@@ -52,14 +53,28 @@ p {
   background-color: ;
 
         }
+  .grafik-mobile {
+    display: none;
+  }
+  }
+
+
 
   @media only screen and (max-width: 738px) {
-.grafik {
+.grafik-mobile {
   float: left;
   margin-top: 0%;
   margin-bottom: 10%;
   margin-left: 5%;
+  display: inline-block;
+  height: 250px;
+  width: 350px;
+  background-color: ;
 
+}
+
+.grafik {
+  display: none;
 }
 
   }
